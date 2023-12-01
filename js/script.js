@@ -27,3 +27,24 @@ function generateArray(){
 //richiamo elemento del DOM e innesto funzione
  const view_num = document.getElementById('numbers');
  view_num.innerHTML = generateArray();
+
+ //funzione che nasconde i numeri dopo 30 secondi
+ let hidden = setTimeout(function(){
+    view_num.innerHTML = '';
+ }, 30000);
+
+ //funzione che mostra countdown
+ let seconds = 30;
+ console.log(seconds);
+ let clock = setInterval(function(){
+    let countdown = document.getElementById('countdown');
+    countdown.innerText = seconds;
+
+    if(seconds == 0){
+        clearInterval(clock);
+    }
+    else{
+        seconds--;
+    }
+}, 1000);
+
