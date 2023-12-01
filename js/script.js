@@ -20,8 +20,12 @@ function generateArray(){
     for(let i=0; i<5; i++){
         numbers.push(generateNumber(numbers));
     }
-
+    
+    let control = setTimeout(function(){
+        insert(numbers);
+    }, 31000)
     return numbers;
+
 }
 
 //richiamo elemento del DOM e innesto funzione
@@ -35,7 +39,7 @@ function generateArray(){
 
  //funzione che mostra countdown
  let seconds = 30;
- console.log(seconds);
+ 
  let clock = setInterval(function(){
     let countdown = document.getElementById('countdown');
     countdown.innerText = seconds;
@@ -47,4 +51,20 @@ function generateArray(){
         seconds--;
     }
 }, 1000);
+let view_points = document.getElementById('points');
+let display_num = document.getElementById('num');
+let points = 0;
+//chiedere all'utente quali numeri ha visualizzato
+function insert(array){
+    for(let i=0; i<5; i++){
+        let num = parseInt(prompt('inserisci un numero che hai visto'));
+        if(array.includes(num)){
+            let empty = '';
+            points++;
+            view_points.innerText = `Punti: ${points}`;
+            display_num.innerText += `${num}${empty}`;
+        }
+    }
+}
+
 
