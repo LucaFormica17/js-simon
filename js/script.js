@@ -59,10 +59,9 @@ function insert(array){
     for(let i=0; i<5; i++){
         let num = parseInt(prompt('inserisci un numero che hai visto'));
         if(array.includes(num)){
-            let empty = '';
             points++;
             view_points.innerText = `Punti: ${points}`;
-            display_num.innerText += `${num}${empty}`;
+            display_num.innerText += ` ${num}`;
         }
     }
 }
